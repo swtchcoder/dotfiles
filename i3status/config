@@ -1,0 +1,46 @@
+general {
+  colors = true
+  color_good = "#a3be8c"
+  color_degraded = "#ebcb8b"
+  color_bad = "#bf616a"
+  interval = 1
+  separator = "|"
+}
+
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery _first_"
+order += "cpu_usage"
+order += "memory"
+order += "tztime local"
+
+wireless _first_ {
+  format_up = "W: %quality at %essid"
+  format_down = ""
+}
+
+ethernet _first_ {
+  format_up = "E: %speed"
+  format_down = ""
+}
+
+battery _first_ {
+  format = "BAT0: %percentage"
+  last_full_capacity = true
+  threshold_type=percentage
+  low_threshold=10
+}
+
+cpu_usage {
+  format = "CPU: %usage"
+  degraded_threshold = 90
+  max_threshold = 95
+}
+
+memory {
+  format = "RAM: %used/%total"
+}
+
+tztime local {
+  format = "%H:%M:%S"
+}

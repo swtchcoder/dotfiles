@@ -1,9 +1,4 @@
-let nvim_config_root = stdpath('config')
-let config_file_list = [
-  \ 'config.vim',
-  \ 'plugins.vim'
-\ ]
+let config_root = stdpath('config')
 
-for i in config_file_list
-  exec 'so' . nvim_config_root . '/' . i
-:endfor
+exec 'so' . config_root . '/config.vim'
+exec 'so' . config_root . '/plugins.vim'

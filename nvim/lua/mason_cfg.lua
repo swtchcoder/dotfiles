@@ -2,19 +2,20 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
 local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local blink_cmp = require("blink.cmp")
+
+local capabilities = blink_cmp.get_lsp_capabilities()
 
 
 mason.setup()
 mason_lspconfig.setup({
   automatic_installation = true,
   handlers = {
-    function (srv) 
-      lspconfig[srv].setup({
-        capabilities = cmp_nvim_lsp.default_capabilities()
+    function (server) 
+      lspconfig[server].setup({
+        capabilities = capabilities
       })
     end
   }
 })
-
 

@@ -1,7 +1,4 @@
 local ibl = require("ibl")
 
-ibl.setup({
-  indent = {
-    char="▏"
-  }
-})
+ibl.setup({ indent = { char="▏" } })
+

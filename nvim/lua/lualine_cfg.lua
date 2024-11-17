@@ -4,7 +4,6 @@ local lualine = require("lualine")
 lualine.setup({
   options = {
     theme = "catppuccin-mocha",
-    section_separators = { left = "", right = "" },
     component_separators = "",
   },
   sections = {
@@ -17,25 +16,7 @@ lualine.setup({
         colored = false
       }
     },
-    lualine_b = {},
-    lualine_c = { 
-      {
-        "progress", 
-        padding = { left = 1, right = 0 }
-      }, 
-      {
-        "location", 
-        padding = { left = 0 }
-      } 
-    },
-    lualine_x = {},
-    lualine_y = { 
-      {
-        "fileformat",
-        padding = { left = 1, right = 2 }
-      } 
-    },
-    lualine_z = { 
+    lualine_b = {
       {
         "filetype", 
         icon_only = true,
@@ -52,6 +33,19 @@ lualine.setup({
           right = 1
         }
       } 
-    }
+    },
+    lualine_c = { 
+      {
+        "progress", 
+        padding = { left = 1, right = 0 }
+      },
+      {
+        "location", 
+        padding = { left = 0 }
+      }
+    },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
   }
 })

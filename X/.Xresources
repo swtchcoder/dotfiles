@@ -1,41 +1,42 @@
-! special
-URxvt.background: #1E1E2E
-URxvt.foreground: #CDD6F4
+! urxvt colors
+!! special
+URxvt.background: #161616
+URxvt.foreground: #efefef
 URxvt.cursorColor: #F5E0DC
 
-! black
-URxvt.color0: #45475A
-URxvt.color8: #585B70
+!! black
+URxvt.color0: #777777
+URxvt.color8: #616161
 
-! red
-URxvt.color1: #F38BA8
-URxvt.color9: #F38BA8
+!! red
+URxvt.color1: #efefef
+URxvt.color9: #7B93A6
 
-! green
-URxvt.color2: #A6E3A1
-URxvt.color10: #A6E3A1
+!! green
+URxvt.color2: #85A999
+URxvt.color10: #96B1A9
 
-! yellow
-URxvt.color3: #F9E2AF
-URxvt.color11: #F9E2AF
+!! yellow
+URxvt.color3: #969696
+URxvt.color11: #B7B7B7
 
-! blue
-URxvt.color4: #89B4FA
-URxvt.color12: #89B4FA
+!! blue
+URxvt.color4: #758891
+URxvt.color12: #90A4A9
 
-! magenta
-URxvt.color5: #F5C2E7
-URxvt.color13: #F5C2E7
+!! magenta
+URxvt.color5: #A2B4BC
+URxvt.color13: #efefef
 
-! cyan
-URxvt.color6: #94E2D5
-URxvt.color14: #94E2D5
+!! cyan
+URxvt.color6: #8CA6A3
+URxvt.color14: #8FABA7
 
-! white
-URxvt.color7: #BAC2DE
-URxvt.color15: #A6ADC8
+!! white
+URxvt.color7: #A5A5A5
+URxvt.color15: #C0C0C0
 
-!! URxvt Appearance
+! urxvt appearance
 URxvt.cursorBlink: true
 URxvt.scrollBar: false
 URxvt.iso14755: false

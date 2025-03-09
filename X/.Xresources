@@ -1,40 +1,42 @@
 ! urxvt colors
 !! special
-URxvt.background: #161616
-URxvt.foreground: #efefef
-URxvt.cursorColor: #F5E0DC
+URxvt.background: #3a3a3a 
+URxvt.foreground: #d0d0d0 
+URxvt.cursorColor: #d0d0d0
+URxvt.cursorColor2: #3a3a3a
+URxvt.colorBD: #e4e4e4
 
 !! black
-URxvt.color0: #777777
-URxvt.color8: #616161
+URxvt.color0: #4e4e4e
+URxvt.color8: #626262
 
 !! red
-URxvt.color1: #efefef
-URxvt.color9: #7B93A6
+URxvt.color1: #d68787 
+URxvt.color9: #d75f87
 
 !! green
-URxvt.color2: #85A999
-URxvt.color10: #96B1A9
+URxvt.color2: #5f865f
+URxvt.color10: #87af87
 
 !! yellow
-URxvt.color3: #969696
-URxvt.color11: #B7B7B7
+URxvt.color3: #d8af5f
+URxvt.color11: #ffd787 
 
 !! blue
-URxvt.color4: #758891
-URxvt.color12: #90A4A9
+URxvt.color4: #85add4
+URxvt.color12: #add4fb
 
 !! magenta
-URxvt.color5: #A2B4BC
-URxvt.color13: #efefef
+URxvt.color5: #d7afaf
+URxvt.color13: #ffafaf
 
 !! cyan
-URxvt.color6: #8CA6A3
-URxvt.color14: #8FABA7
+URxvt.color6: #87afaf
+URxvt.color14: #87d7d7
 
 !! white
-URxvt.color7: #A5A5A5
-URxvt.color15: #C0C0C0
+URxvt.color7: #d0d0d0
+URxvt.color15: #e4e4e4
 
 ! urxvt appearance
 URxvt.cursorBlink: true

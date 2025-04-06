@@ -17,15 +17,20 @@ in {
   services = {
     xserver = {
       enable = true;
+      
+      xkb = {
+        layout = "us";
+        variant = "";
+      }; 
 
       displayManager.lightdm.enable = true;
       
       windowManager.session = [{
         name = "dwm";
-	start = ''
-	  ${customDWM}/bin/dwm &
-	  waitPID=$!
-	'';
+        start = ''
+          ${customDWM}/bin/dwm &  
+          waitPID=$!
+        '';
       }];
     };
 
@@ -37,8 +42,8 @@ in {
       jack.enable = true;
       
       alsa = {
-	enable = true;
-	support32Bit = true;
+        enable = true;
+        support32Bit = true;
       };
     };
   };

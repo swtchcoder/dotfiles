@@ -17,6 +17,7 @@
       useOSProber = true;
       efiSupport = true;
     };
+
     efi.canTouchEfiVariables = true;
   };
 
@@ -26,8 +27,10 @@
   };
 
   networking = {
-    hostName = "homelab-0";
+    hostName = "nixos";
+
     networkmanager.enable = true;
+
     firewall = {
       enable = true;
       # allowedTCPPorts = [ 22 ];
@@ -56,12 +59,6 @@
   };
 
   services = {
-    # Configure keymap in X11
-    xserver.xkb = {
-      layout = "us";
-      variant = "";
-    };
-
     openssh.enable = true;
   };
 
@@ -70,7 +67,7 @@
     isNormalUser = true;
     description = "switchcodeur";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [];
+    # packages = with pkgs; [];
   };
 
   # Allow unfree packages

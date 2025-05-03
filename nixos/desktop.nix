@@ -1,18 +1,25 @@
 { pkgs, ... }: 
 let
-  customDWM = import ../pkgs/dwm/dwm.nix { inherit pkgs; };
-  customDMenu = import ../pkgs/dmenu/dmenu.nix { inherit pkgs; };
-  customST = import ../pkgs/st/st.nix { inherit pkgs; };
-  customScroll = import ../pkgs/scroll/scroll.nix { inherit pkgs; };
+  customDWM = import ./dwm/pkg.nix { inherit pkgs; };
+  customDMenu = import ./dmenu/pkg.nix { inherit pkgs; };
+  customST = import ./st/pkg.nix { inherit pkgs; };
+  customScroll = import ./scroll/pkg.nix { inherit pkgs; };
 in { 
-  environment.systemPackages = with pkgs; [
-    customDWM
-    customDMenu
-    customST
-    customScroll
+  environment = {
+    sessionVariables = {
+      QT_STYLE_OVERRIDE = "adwaita-dark";
+      GTK_THEME = "Adwaita-dark";
+    }; 
 
-    firefox
-  ];
+    systemPackages = with pkgs; [
+      customDWM
+      customDMenu
+      customST
+      customScroll
+
+      firefox
+    ];
+  };
 
   services = {
     xserver = {

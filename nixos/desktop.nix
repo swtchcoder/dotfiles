@@ -17,6 +17,7 @@ in {
       customST
       customScroll
 
+      xclip
       firefox
     ];
   };

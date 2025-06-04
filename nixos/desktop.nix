@@ -18,6 +18,9 @@ in {
       customScroll
 
       xclip
+
+      xrdp
+
       firefox
     ];
   };
@@ -53,6 +56,12 @@ in {
         enable = true;
         support32Bit = true;
       };
+    };
+
+    xrdp = {
+      enable = true;
+      defaultWindowManager = "dwm";
+      openFirewall = true;
     };
   };
 }

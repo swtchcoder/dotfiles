@@ -8,6 +8,7 @@
     [
       ./hardware-configuration.nix
       ./desktop.nix
+      # ./server.nix 
     ];
 
   boot.loader = {
@@ -54,10 +55,6 @@
     };
   };
 
-  services = {
-    openssh.enable = true;
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.switchcodeur = {
     isNormalUser = true;
@@ -69,18 +66,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Meslo" ]; })
-  ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
     git
-  ];
-
-  virtualisation.docker.enable = true;
+  ]; 
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

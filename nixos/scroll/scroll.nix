@@ -9,13 +9,7 @@ pkgs.stdenv.mkDerivation {
   };
 
   patches = [
-    ./config.patch
-  ];
-
-  buildInputs = with pkgs.xorg; [
-    libX11
-    libXft
-    libXinerama
+    ./mouse.patch
   ];
 
   installPhase = ''

@@ -1,7 +1,7 @@
 { pkgs, ... }: 
 let
   customDWM = import ./dwm/pkg.nix { inherit pkgs; };
-  customDMenu = import ./dmenu/pkg.nix { inherit pkgs; };
+  customDMenu = import ./dmenu/dmenu.nix { inherit pkgs; };
   customST = import ./st/pkg.nix { inherit pkgs; };
   customScroll = import ./scroll/pkg.nix { inherit pkgs; };
 in { 

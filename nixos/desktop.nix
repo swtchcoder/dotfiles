@@ -2,7 +2,7 @@
 let
   customDWM = import ./dwm/pkg.nix { inherit pkgs; };
   customDMenu = import ./dmenu/dmenu.nix { inherit pkgs; };
-  customST = import ./st/pkg.nix { inherit pkgs; };
+  customST = import ./st/st.nix { inherit pkgs; };
 in { 
   environment = {
     sessionVariables = {
@@ -22,6 +22,8 @@ in {
       firefox
     ];
   };
+
+  networking.hostName = "desktop-0";
 
   services = {
     xserver = {

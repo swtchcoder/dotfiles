@@ -20,8 +20,8 @@ require("lazy").setup({
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
@@ -33,4 +33,4 @@ vim.opt.showmode = false
 vim.opt.shortmess:append("c")
 vim.opt.laststatus = 3
 vim.opt.clipboard = "unnamedplus"
-
+vim.opt.colorcolumn = "79"

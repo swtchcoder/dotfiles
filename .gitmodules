@@ -1,0 +1,3 @@
+[submodule "suckless"]
+	path = suckless
+	url = https://github.com/swtchcoder/suckless

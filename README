@@ -1,0 +1,14 @@
+dotfiles
+========
+
+Requirements
+------------
+In order to use this config, you need the Xlib header files, nvim, tmux and
+X11.
+
+Installation
+------------
+
+    git clone --recurse-submodules https://github.com/swtchcoder/dotfiles
+    cd dotfiles
+    ./apply

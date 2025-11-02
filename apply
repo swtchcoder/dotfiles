@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+./suckless/all
+mkdir -p ~/Pictures/Wallpapers/
+cp -f wallpaper.png ~/Pictures/Wallpapers/
+cp -f .xinitrc ~/
+mkdir -p ~/.config/
+cp -r nvim tmux ~/.config/

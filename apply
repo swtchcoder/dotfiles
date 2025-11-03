@@ -1,11 +1,17 @@
 #!/bin/sh
 set -e
-ID=$(grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
-cd suckless
-sudo ./all
-cd ..
+if [ "$1" != "NOBUILD"]; then
+	cd suckless
+	sudo ./all
+	cd ..
+fi
 mkdir -p ~/Pictures/Wallpapers/
 cp -f wallpaper.png ~/Pictures/Wallpapers/
 cp -f .xinitrc .xprofile ~/
 mkdir -p ~/.config/
 cp -r gtk-3.0 gtk-4.0 nvim tmux ~/.config/
+sudo mkdir -p /usr/share/fonts/MesloLG
+cd /usr/share/fonts/MesloLG
+sudo curl -Lo MesloLG.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip
+sudo 7z x MesloLG.zip
+sudo rm MesloLG.zip

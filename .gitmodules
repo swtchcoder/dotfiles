@@ -1,6 +1,6 @@
-[submodule "voidlinux"]
-	path = voidlinux
-	url = https://github.com/swtchcoder/voidlinux
+[submodule "void"]
+	path = void
+	url = https://github.com/swtchcoder/void
 [submodule "suckless"]
 	path = suckless
 	url = https://github.com/swtchcoder/suckless

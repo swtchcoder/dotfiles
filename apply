@@ -1,17 +1,26 @@
 #!/bin/sh
 set -e
-if [ "$1" != "NOBUILD"]; then
+. /etc/os-release
+case "$ID" in
+void)
+	sudo xbps-install -Syu
+	./apply-void
+	;;
+*)
 	cd suckless
 	sudo ./all
 	cd ..
-fi
+esac
 mkdir -p ~/Pictures/Wallpapers/
 cp -f wallpaper.png ~/Pictures/Wallpapers/
 cp -f .xinitrc .xprofile ~/
 mkdir -p ~/.config/
 cp -r gtk-3.0 gtk-4.0 nvim tmux ~/.config/
-sudo mkdir -p /usr/share/fonts/MesloLG
-cd /usr/share/fonts/MesloLG
-sudo curl -Lo MesloLG.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip
-sudo 7z x MesloLG.zip
-sudo rm MesloLG.zip
+if [ ! -d /usr/share/fonts/MesloLG]; then 
+	sudo mkdir -p /usr/share/fonts/Meslo
+	cd /usr/share/fonts/Meslo
+	sudo curl -Lo Meslo.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip
+	sudo 7z x Meslo.zip
+	sudo rm Meslo.zip
+	cd ..
+fi

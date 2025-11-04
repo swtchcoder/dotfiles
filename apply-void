@@ -3,4 +3,3 @@ set -e
 sudo ./voidlinux/suckless suckless
 sudo ./voidlinux/xorg
 sudo ./voidlinux/pipewire
-./apply NOBUILD

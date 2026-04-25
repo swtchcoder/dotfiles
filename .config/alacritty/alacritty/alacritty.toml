@@ -1,0 +1,74 @@
+[window]
+decorations = "Full"
+decorations_theme_variant = "Dark"
+
+[font]
+size = 14.0
+
+[font.normal]
+#family = "Cozette"
+family = "FiraCode Nerd Font"
+
+[font.bold]
+#family = "Cozette"
+family = "FiraCode Nerd Font"
+
+[font.italic]
+#family = "Cozette"
+family = "FiraCode Nerd Font"
+
+[font.bold_italic]
+#family = "Cozette"
+family = "FiraCode Nerd Font"
+
+[colors.primary]
+background = "#101010"
+foreground = "#f6f1ea"
+
+#[colors.cursor]
+#text = "#f6f1ea"
+#cursor = "#f6f1ea"
+
+#[colors.selection]
+#text = "CellForeground"
+#background = "#262423"
+
+[colors.normal]
+black   = "#1e1e1e" # regular0
+red     = "#be0f17" # regular1
+green   = "#868715" # regular2
+yellow  = "#cc881a" # regular3
+blue    = "#377375" # regular4
+magenta = "#a04b73" # regular5
+cyan    = "#578e57" # regular6
+white   = "#ca480e" # regular7
+
+[colors.bright]
+black   = "#262423" # bright0
+red     = "#f73028" # bright1
+green   = "#aab01e" # bright2
+yellow  = "#f7b125" # bright3
+blue    = "#719586" # bright4
+magenta = "#c77089" # bright5
+cyan    = "#7db669" # bright6
+white   = "#fb6a16" # bright7
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[keyboard]
+bindings = [
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
+
+[env]
+TERM = "xterm-256color"
+
+
+#[[keyboard.bindings]]
+#key = "Return"
+#mods = "Shift"
+#chars = "\u001B\r"

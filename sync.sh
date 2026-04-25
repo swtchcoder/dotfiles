@@ -1,9 +1,7 @@
 #!/bin/sh
-# ref https://github.com/areofyl
 DOTFILES="$(dirname "$0")"
-MAX=2
+MAX=5
 
-# Sync a file or directory
 sync_path() {
 	src="$1"
 	dst="$DOTFILES/$2"
@@ -17,7 +15,31 @@ sync_path() {
 	fi
 }
 
-# Sync all tracked configs
+clean() {
+	find "$DOTFILES" -type f \( -iname "*secret*" -o -iname "*token*" -o -iname "*password*" -o -iname "id_rsa*" -o -iname "id_ed25519*" \) -delete 2>/dev/null
+}
+
+git_sync() {
+	cd "$DOTFILES"
+	if git diff --quiet && git diff --cached --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+		exit 0
+	fi
+	git add -A
+	count=$(git diff --cached --name-only | wc -l)
+	if [ "$count" -ge "$MAX" ]; then
+		git commit -m "sync $count files"
+	else
+		base="$(basename "$DOTFILES")"
+		files=$(git diff --cached --name-only)
+		git reset HEAD -- . > /dev/null 2>&1
+		for file in $files; do
+			git add "$file"
+			git commit -m "sync $(echo "$file" | sed "s|^$base/||")"
+		done
+	fi
+	git push origin
+}
+
 sync_path "$HOME/.config/nvim" ".config/nvim"
 sync_path "$HOME/.config/alacritty" ".config/alacritty"
 sync_path "$HOME/.config/i3" ".config/i3"
@@ -28,25 +50,5 @@ sync_path "$HOME/.xinitrc" ".xinitrc"
 sync_path "$HOME/.config/gtk-3.0" ".config/gtk-3.0"
 sync_path "$HOME/.config/gtk-4.0" ".config/gtk-4.0"
 
-# Clean up junk and secrets
-find "$DOTFILES" -type f \( -iname "*secret*" -o -iname "*token*" -o -iname "*password*" -o -iname "id_rsa*" -o -iname "id_ed25519*" \) -delete 2>/dev/null
-
-cd "$DOTFILES"
-
-# Nothing to do?
-if git diff --quiet && git diff --cached --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
-	exit 0
-fi
-git add -A
-count=$(git diff --cached --name-only | wc -l)
-if [ "$count" -ge "$MAX" ]; then
-	git commit -m "sync $count files"
-else
-	base="$(basename "$DOTFILES")"
-	git reset HEAD -- . > /dev/null 2>&1
-	for file in $(git diff --cached --name-only); do
-		git add "$file"
-		git commit -m "sync $(echo "$file" | sed "s|^$base/||")"
-	done
-fi
-git push origin
+clean
+git_sync

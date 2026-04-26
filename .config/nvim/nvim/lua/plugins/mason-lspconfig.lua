@@ -8,7 +8,8 @@ return {
 		return {
 			ensure_installed = {
 				"clangd",
-				"gopls"
+				"gopls",
+				"rust-analyzer"
 			},
 			automatic_enable = false,
 		}

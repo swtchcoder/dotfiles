@@ -29,7 +29,8 @@ return {
 		vim.lsp.config("*", { capabilities = capabilities })
 		vim.lsp.enable({
 			"clangd",
-			"gopls"
+			"gopls",
+			"rust-analyzer"
 		})
 	end
 }

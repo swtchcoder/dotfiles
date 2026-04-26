@@ -6,6 +6,7 @@ sync_path() {
 	src="$1"
 	dst="$DOTFILES/$2"
 	if [ -e "$src" ] || [ "$src" -nt "$dst" ]; then
+		rm -rf "$dst"
 		mkdir -p "$(dirname "$dst")"
 		cp -a "$src" "$dst"
 	else

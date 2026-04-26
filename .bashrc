@@ -12,3 +12,4 @@ alias vi="nvim"
 alias vim="nvim"
 
 PS1="[\033[32m\u@\h \033[33m\w\033[35m\$(__git_ps1 ' %s')\033[39m]\n$ " 
+. "$HOME/.cargo/env"

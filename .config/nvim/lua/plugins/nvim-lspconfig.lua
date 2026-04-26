@@ -30,7 +30,7 @@ return {
 		vim.lsp.enable({
 			"clangd",
 			"gopls",
-			"rust-analyzer"
+			"rust_analyzer"
 		})
 	end
 }

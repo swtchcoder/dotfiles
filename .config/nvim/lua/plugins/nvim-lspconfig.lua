@@ -16,6 +16,7 @@ return {
 				buffer = bufnr,
 				preserve_mappings = false,
 			})
+			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 		end)
 		vim.diagnostic.config({
 			virtual_text = {

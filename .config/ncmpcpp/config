@@ -100,15 +100,15 @@ visualizer_in_stereo = yes
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-visualizer_type = wave
+visualizer_type = ellipse
 #
-visualizer_fps = 180
+visualizer_fps = 60
 #
-visualizer_autoscale = yes
+#visualizer_autoscale = no
 #
-visualizer_look = ▋▋
+visualizer_look = ●●
 #
-visualizer_color = blue
+visualizer_color = magenta,cyan,blue,red,white,green,yellow,black,magenta
 #
 ## Alternative subset of 256 colors for terminals that support it.
 ##
@@ -123,7 +123,7 @@ visualizer_color = blue
 ## and visualizer_in_stereo set, artifacts may be visible on the bottom half of
 ## the visualization.
 #
-#visualizer_spectrum_smooth_look = yes
+visualizer_spectrum_smooth_look = yes
 #
 ## Use unicode block characters from "symbols for legacy computing". This
 ## improves the smooth look on transparent terminals by using special unicode
@@ -258,17 +258,17 @@ visualizer_color = blue
 #
 #alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-#current_item_prefix = $(yellow)$r
+current_item_prefix = "$b$7$/b$3 "
 #
-#current_item_suffix = $/r$(end)
-#
+current_item_suffix = "  $8"
+##
 #current_item_inactive_column_prefix = $(white)$r
 #
 #current_item_inactive_column_suffix = $/r$(end)
 #
-#now_playing_prefix = $b
+now_playing_prefix = "$b$2$7 "
 #
-#now_playing_suffix = $/b
+now_playing_suffix = "  $/b$8"
 #
 #browser_playlist_prefix = "$2playlist$9 "
 #
@@ -383,8 +383,7 @@ visualizer_color = blue
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-#progressbar_look = =>
-#
+progressbar_look = ▃▃▃
 ## Available values: database, playlist.
 ##
 #default_place_to_search_in = database
@@ -409,14 +408,14 @@ visualizer_color = blue
 #
 #default_tag_editor_pattern = %n - %t
 #
-#header_visibility = yes
+header_visibility = no
 #
-#statusbar_visibility = yes
+statusbar_visibility = yes
 #
 ## Show the "Connected to ..." message on startup
 #connected_message_on_startup = yes
 #
-#titles_visibility = yes
+titles_visibility = yes
 #
 #header_text_scrolling = yes
 #
@@ -539,7 +538,7 @@ visualizer_color = blue
 #
 #media_library_sort_by_mtime = no
 #
-#enable_window_title = yes
+enable_window_title = yes
 #
 ##
 ## Note: You can choose default search mode for search engine. Available modes
@@ -557,7 +556,7 @@ visualizer_color = blue
 #
 #search_engine_default_search_mode = 1
 #
-#external_editor = nano
+external_editor = nvim
 #
 ## Note: set to yes if external editor is a console application.
 ##
@@ -605,15 +604,15 @@ visualizer_color = blue
 #
 #state_flags_color = default:b
 #
-#main_window_color = yellow
+main_window_color = default
 #
 #color1 = white
 #
 #color2 = green
 #
-#progressbar_color = black:b
+progressbar_color = black
 #
-#progressbar_elapsed_color = green:b
+progressbar_elapsed_color = magenta
 #
 #statusbar_color = default
 #

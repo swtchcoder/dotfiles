@@ -25,6 +25,8 @@ sync_path "$HOME/.ascii" ".ascii"
 sync_path "$HOME/.xinitrc" ".xinitrc"
 sync_path "$HOME/.config/gtk-3.0" ".config/gtk-3.0"
 sync_path "$HOME/.config/gtk-4.0" ".config/gtk-4.0"
+sync_path "$HOME/.config/mpd" ".config/mpd"
+sync_path "$HOME/.config/ncmpcpp" ".config/ncmpcpp"
 
 find "$DOTFILES" -type f \( -iname "*secret*" -o -iname "*token*" -o -iname "*password*" -o -iname "id_rsa*" -o -iname "id_ed25519*" \) -delete 2>/dev/null
 

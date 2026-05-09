@@ -1,0 +1,12 @@
+set_from_resource $bg i3wm.color0 {background}
+set_from_resource $fg i3wm.color7 {foreground}
+set_from_resource $accent i3wm.color4 {color4}
+set_from_resource $urgent i3wm.color1 {color1}
+
+client.focused          $accent $accent $fg $accent
+client.focused_inactive $bg     $bg     $fg $bg
+client.unfocused        $bg     $bg     $fg $bg
+client.urgent           $urgent $urgent $fg $urgent
+client.placeholder      $bg     $bg     $fg $bg
+
+client.background       $bg

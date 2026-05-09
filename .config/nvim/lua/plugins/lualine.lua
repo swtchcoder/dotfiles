@@ -7,8 +7,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				globalstatus = true,
-				theme = require("utils.colorscheme")()
+				globalstatus = true
 			},
 			extensions = {
 				"oil"

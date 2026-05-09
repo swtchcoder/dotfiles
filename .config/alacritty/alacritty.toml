@@ -61,7 +61,9 @@ multiplier = 3
 bindings = [
   { key = "V", mods = "Control|Shift", action = "Paste" },
   { key = "C", mods = "Control|Shift", action = "Copy" },
-  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" }
+  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "Minus", mods = "Control|Shift", action = "DecreaseFontSize" },
+  { key = "Equals", mods = "Control|Shift", action = "IncreaseFontSize" }
 ]
 
 [env]

@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Cozette 15
+font pango:Iosevka Nerd Font 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -183,7 +183,10 @@ bar {
 exec_always --no-startup-id feh --bg-fill ~/.config/i3/a_mountain_with_snow_on_top_and_trees_in_the_background.jpg
 
 default_border pixel 3
+gaps inner 15
+
 client.focused          #afa193 #afa193 #1e1e1e #afa193 #afa193
 client.unfocused        #101010 #101010 #888888 #101010 #101010
 client.focused_inactive #101010 #101010 #888888 #101010 #101010
 client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
+

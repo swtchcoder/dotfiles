@@ -182,5 +182,5 @@ bar {
 
 default_border pixel 3
 gaps inner 15
-exec_always --no-startup-id wal -i ~/.config/i3/a_building_with_a_roof_and_a_body_of_water.jpg --saturate 0.75
+exec_always --no-startup-id ~/.local/bin/wal -i ~/pictures/wallpapers --saturate 0.75
 include ~/.cache/wal/colors-i3

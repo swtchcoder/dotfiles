@@ -180,13 +180,13 @@ bar {
         status_command i3status
 }
 
-exec_always --no-startup-id feh --bg-fill ~/.config/i3/a_mountain_with_snow_on_top_and_trees_in_the_background.jpg
+exec_always --no-startup-id wal -i ~/.config/i3/a_building_with_a_roof_and_a_body_of_water.jpg --saturate 0.75
 
 default_border pixel 3
 gaps inner 15
 
-client.focused          #afa193 #afa193 #1e1e1e #afa193 #afa193
-client.unfocused        #101010 #101010 #888888 #101010 #101010
-client.focused_inactive #101010 #101010 #888888 #101010 #101010
-client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
+#client.focused          #afa193 #afa193 #1e1e1e #afa193 #afa193
+#client.unfocused        #101010 #101010 #888888 #101010 #101010
+#client.focused_inactive #101010 #101010 #888888 #101010 #101010
+#client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
 

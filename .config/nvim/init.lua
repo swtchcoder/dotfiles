@@ -27,5 +27,3 @@ require("lazy").setup("plugins", {
 		notify = false
 	}
 })
-
-vim.cmd.colorscheme(require("utils.colorscheme")())

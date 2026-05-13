@@ -1,34 +1,51 @@
 local terminal_buffer = nil
-local terminal_active = false
-local previous_buffer = nil
+local terminal_window = false
+local previous_window = nil
+
+local function float_buffer_open(buffer)
+	local width = math.floor(vim.o.columns * 0.8)
+	local height = math.floor(vim.o.lines * 0.8)
+
+	local row = math.floor((vim.o.lines - height) / 2)
+	local col = math.floor((vim.o.columns - width) / 2)
+
+	return vim.api.nvim_open_win(buffer, true, {
+		relative = "editor",
+		width = width,
+		height = height,
+		row = row,
+		col = col,
+		style = "minimal",
+		border = "single",
+	})
+end
 
 local function terminal_toggle()
-	local window = vim.api.nvim_get_current_win()
+	if terminal_window and vim.api.nvim_win_is_valid(terminal_window) then
+		vim.api.nvim_win_close(terminal_window, true)
+		terminal_window = nil
 
-	if terminal_active then
-		if terminal_buffer and vim.api.nvim_buf_is_valid(previous_buffer) then
-			vim.api.nvim_win_set_buf(window, previous_buffer)
+		if previous_window and vim.api.nvim_win_is_valid(previous_window) then
+			vim.api.nvim_set_current_win(previous_window)
 		end
-		terminal_active = false
 		return
 	end
 
-	previous_buffer = vim.api.nvim_get_current_buf()
+	previous_window = vim.api.nvim_get_current_win()
 
 	if not terminal_buffer or not vim.api.nvim_buf_is_valid(terminal_buffer) then
 		terminal_buffer = vim.api.nvim_create_buf(false, true)
 
 		vim.bo[terminal_buffer].buflisted = false
-		vim.bo[terminal_buffer].filetype = "terminal"
+		vim.bo[terminal_buffer].bufhidden = "hide"
 	end
 
-	vim.api.nvim_win_set_buf(window, terminal_buffer)
+	terminal_window = float_buffer_open(terminal_buffer)
 
 	if vim.bo[terminal_buffer].buftype ~= "terminal" then
 		vim.fn.termopen(vim.o.shell)
 	end
 
-	terminal_active = true
 	vim.cmd("startinsert")
 end
 
@@ -42,7 +59,6 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.fillchars = "eob: "
 vim.opt.mouse = "a"
-vim.opt.cmdheight = 0
 vim.opt.showmode = false
 vim.opt.shortmess:append("c")
 vim.opt.laststatus = 3
@@ -56,8 +72,8 @@ vim.g.maplocalleader = " "
 -- save
 vim.keymap.set({ "n", "i", "x" }, "<C-s>", "<Esc><cmd>w<CR>")
 -- quit buffer
-vim.keymap.set({ "n", "i", "x" }, "<C-w>", "<Esc><cmd>q<CR>", { noremap = true})
-vim.keymap.set("t", "<C-w>", "<C-\\><C-n><cmd>q<CR>", { noremap = true})
+vim.keymap.set({ "n", "i", "x" }, "<C-w>", "<Esc><cmd>q<CR>", { noremap = true })
+vim.keymap.set("t", "<C-w>", "<C-\\><C-n><cmd>q<CR>", { noremap = true })
 -- resize buffer
 vim.keymap.set({ "n", "i", "x" }, "<C-S-Left>", "<Esc><cmd>vertical resize -2<CR>")
 vim.keymap.set(
@@ -114,4 +130,4 @@ vim.keymap.set("t", "<C-Left>", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-Up>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("t", "<C-Down>", "<C-\\><C-n><C-w>j")
 -- search
-vim.keymap.set({"n", "i", "x"}, "<C-f>", "<Esc>/")
+vim.keymap.set({ "n", "i", "x" }, "<C-f>", "<Esc>/")

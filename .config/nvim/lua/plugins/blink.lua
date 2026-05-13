@@ -17,9 +17,15 @@ return {
 			},
 		},
 		completion = {
+			menu = {
+				border = "single"
+			},
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 0,
+				window = {
+					border = "single"
+				}
 			},
 			ghost_text = { enabled = true },
 			list = { selection = { preselect = false } },

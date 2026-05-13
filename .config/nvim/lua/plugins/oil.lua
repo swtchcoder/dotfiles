@@ -10,7 +10,7 @@ local function load_git_ignored(dir)
 	end
 
 	local cmd = "git -C " .. vim.fn.shellescape(dir)
-		.. " ls-files --others --ignored --exclude-standard"
+	    .. " ls-files --others --ignored --exclude-standard"
 
 	local handle = io.popen(cmd)
 	if not handle then

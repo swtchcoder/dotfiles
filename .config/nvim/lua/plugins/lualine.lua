@@ -8,7 +8,6 @@ return {
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
-				theme = "pywal16-nvim"
 			},
 			extensions = {
 				"oil"

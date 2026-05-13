@@ -5,7 +5,7 @@ fi
 
 . /usr/share/git/git-prompt.sh
 
-export PATH="$PATH:/usr/local/musl/bin/"
+export PATH="$PATH:~/.local/bin"
 
 cat ~/.ascii
 

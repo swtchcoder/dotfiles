@@ -100,9 +100,9 @@ visualizer_in_stereo = yes
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-visualizer_type = ellipse
+visualizer_type = wave
 #
-visualizer_fps = 60
+visualizer_fps = 180
 #
 #visualizer_autoscale = no
 #

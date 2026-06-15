@@ -7,6 +7,13 @@ The nvim-treesitter plugin provides
    to Neovim.
 ]]
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate"
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  opts = {
+    ensure_installed = { 
+      "markdown",
+      "typst"
+    },
+    highlight = { enable = true },
+  }
 }

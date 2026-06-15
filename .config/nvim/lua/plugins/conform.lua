@@ -13,7 +13,9 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				go = { "gofmt" },
-				rust = { "rustfmt" }
+				rust = { "rustfmt" },
+				markdown = { "prettierd", "prettier" },
+				typst = { "typstfmt" }
 			},
 		})
 	end,

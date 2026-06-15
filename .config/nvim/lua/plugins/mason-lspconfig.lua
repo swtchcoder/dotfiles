@@ -7,9 +7,11 @@ return {
 	opts = function()
 		return {
 			ensure_installed = {
-				"clangd",
-				"gopls",
-				"rust_analyzer"
+				"clangd", -- c/c++/obj-c
+				"gopls", -- go
+				"rust_analyzer", -- rust
+				"pyright", -- python
+				"tinymist" -- typst
 			},
 			automatic_enable = true,
 		}

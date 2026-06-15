@@ -19,10 +19,10 @@ font pango:Iosevka Nerd Font 13
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-exec pipewire
-exec pipewire-pulse
-exec wireplumber
-exec /usr/libexec/xdg-desktop-portal-wlr
+#exec pipewire
+#exec wireplumber
+#exec pipewire-pulse
+#exec /usr/libexec/xdg-desktop-portal-wlr
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -39,7 +39,13 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+q exec alacritty
+bindsym $mod+q exec kitty
+
+# take a screenshot
+bindsym $mod+s exec flameshot gui
+
+# zoom
+bindsym $mod+z exec zooc
 
 # kill focused window
 bindsym $mod+c kill
@@ -86,7 +92,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -144,7 +150,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -182,5 +188,5 @@ bar {
 
 default_border pixel 3
 gaps inner 15
-exec_always --no-startup-id ~/.local/bin/wal -i ~/pictures/wallpapers --saturate 0.75
+exec_always --no-startup-id walrs -i ~/Pictures/Wallpapers --saturation 127 --brightness -20
 include ~/.cache/wal/colors-i3

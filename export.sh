@@ -4,9 +4,9 @@ cd "$(dirname "$0")"
 sync_path() {
 	src="$1"
 	dst="$2"
-	rm -rf "$dst"
-	mkdir -p "$(dirname "$dst")"
-	cp -a "$src" "$dst"
+	rm -rf "$2"
+	mkdir -p "$(dirname "$2")"
+	cp -a "$1" "$2"
 }
 
 . ./config

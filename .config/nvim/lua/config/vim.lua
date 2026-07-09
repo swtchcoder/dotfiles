@@ -113,10 +113,12 @@ vim.keymap.set("x", "<Up>", "<C-c><Up>")
 vim.keymap.set("x", "<Down>", "<C-c><Down>")
 vim.keymap.set("x", "<Left>", "<C-c><Left>")
 vim.keymap.set("x", "<Right>", "<C-c><Right>")
+
 -- open file
 vim.keymap.set({ "n", "t", "i", "x" }, "<C-o>", "<Esc><cmd>Oil<CR>")
 -- toggle terminal
 vim.keymap.set({ "n", "t", "i", "x" }, "<C-q>", terminal_toggle)
+
 -- change buffer
 vim.keymap.set({ "n", "i", "x" }, "<C-Tab>", "<Esc><cmd>bnext<CR>")
 vim.keymap.set("t", "<C-Tab>", "<C-\\><C-n><cmd>bnext<CR>")
@@ -131,3 +133,4 @@ vim.keymap.set("t", "<C-Up>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("t", "<C-Down>", "<C-\\><C-n><C-w>j")
 -- search
 vim.keymap.set({ "n", "i", "x" }, "<C-f>", "<Esc>/")
+

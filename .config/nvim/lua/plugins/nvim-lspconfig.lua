@@ -33,7 +33,9 @@ return {
 			"gopls",
 			"rust_analyzer",
 			"pyright",
-			"tinymist"
+			"tinymist",
+			"csharp_ls",
+			"asm-lsp"
 		})
 	end
 }

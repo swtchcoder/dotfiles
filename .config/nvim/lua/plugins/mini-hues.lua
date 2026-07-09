@@ -1,4 +1,5 @@
 return {
+	--[[
 	"nvim-mini/mini.hues",
 	config = function()
 		local fallback = {
@@ -28,4 +29,11 @@ return {
 
 		require("mini.hues").setup(colors)
 	end
+	]]
+	"nyoom-engineering/oxocarbon.nvim",
+	config = function()
+		vim.opt.background = "dark"
+		vim.cmd.colorscheme "oxocarbon"
+	end
+
 }

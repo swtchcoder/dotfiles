@@ -11,7 +11,9 @@ return {
 				"gopls", -- go
 				"rust_analyzer", -- rust
 				"pyright", -- python
-				"tinymist" -- typst
+				"tinymist", -- typst
+				"csharp_ls", -- c#
+				"asm_lsp"
 			},
 			automatic_enable = true,
 		}

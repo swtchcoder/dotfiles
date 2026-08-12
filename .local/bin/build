@@ -12,10 +12,10 @@ _() {
 	done
 }
 
-_ "make" "Makefile" "makefile" "GNUmakefile"
+_ "make -j$(nproc)" "Makefile" "makefile" "GNUmakefile"
 _ "meson setup build && ninja -C build" "meson.build"
 _ "ninja" "build.ninja"
-_ "./configure && make" "configure"
+_ "./configure && make -j$(nproc)" "configure"
 
 read -p "build command: " COMMAND
 $COMMAND

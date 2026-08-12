@@ -19,10 +19,10 @@ font pango:Iosevka Nerd Font 13
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-#exec pipewire
-#exec wireplumber
-#exec pipewire-pulse
-#exec /usr/libexec/xdg-desktop-portal-wlr
+exec pipewire
+exec wireplumber
+exec pipewire-pulse
+exec /usr/libexec/xdg-desktop-portal-wlr
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -39,7 +39,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+q exec kitty
+bindsym $mod+q exec alacritty
 
 # take a screenshot
 bindsym $mod+s exec flameshot gui
@@ -185,8 +185,3 @@ bar {
 	position top
         status_command i3status
 }
-
-default_border pixel 3
-gaps inner 15
-exec_always --no-startup-id walrs -i ~/Pictures/Wallpapers --saturation 127 --brightness -20
-include ~/.cache/wal/colors-i3

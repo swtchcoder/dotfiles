@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+_() {
+	COMMAND="$1"
+	shift
+	for filename in "$@"; do
+		if [ -f "$filename" ]; then
+			$COMMAND
+			exit $?
+		fi
+	done
+}
+
+_ "make" "Makefile" "makefile" "GNUmakefile"
+_ "meson setup build && ninja -C build" "meson.build"
+_ "ninja" "build.ninja"
+_ "./configure && make" "configure"
+
+read -p "build command: " COMMAND
+$COMMAND

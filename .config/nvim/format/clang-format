@@ -1,0 +1,15 @@
+BasedOnStyle: LLVM
+IndentWidth: 8
+TabWidth: 8
+UseTab: Always
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+ColumnLimit: 79
+PointerAlignment: Right
+SpaceBeforeParens: ControlStatements
+AlwaysBreakAfterReturnType: All
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+  AfterControlStatement: false
+  IndentBraces: false

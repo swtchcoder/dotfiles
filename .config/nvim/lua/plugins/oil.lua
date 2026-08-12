@@ -1,7 +1,3 @@
---[[
-A vim-vinegar like file explorer that lets you edit your filesystem like a
-normal Neovim buffer.
-]]
 local git_ignored_cache = {}
 
 local function load_git_ignored(dir)

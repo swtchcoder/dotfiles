@@ -5,8 +5,14 @@ build
 
 COMMAND=$@
 if [ -z "$COMMAND" ]; then
-	read -p "run command: " COMMAND
+	if [ -f ~/.local/cache/run ]; then
+		LAST=$(cat ~/.local/cache/run)
+	fi
+	read -e -i "$LAST" -p "run command: " COMMAND
 fi
+
+mkdir -p ~/.local/cache
+echo $COMMAND > ~/.local/cache/run
 
 export DEBUGINFOD_URLS="https://debuginfod.elfutils.org"
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes $COMMAND

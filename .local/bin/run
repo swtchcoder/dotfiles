@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+build
+read -p "run command: " COMMAND
+export DEBUGINFOD_URLS="https://debuginfod.elfutils.org"
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes $COMMAND

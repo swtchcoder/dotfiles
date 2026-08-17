@@ -29,7 +29,14 @@ require("format").setup({
 })
 
 require("build").setup({
-	["make"] = { "Makefile", "makefile", "GNUmakefile" },
+	["make -j$(nproc)"] = { "Makefile", "makefile", "GNUmakefile" },
+	["./configure && make -j$(nproc)"] = { "configure" },
+
+	["ninja"] = { "build.ninja" },
+	["ninja -C build"] = { "build/build.ninja" },
+	["meson setup build && ninja -C build"] = { "meson.build" },
+
+	["cmake -B build && cmake --build build --parallel $(nproc)"] = { "CMakeLists.txt" }
 })
 vim.keymap.set({ "n", "t", "i", "x" }, "<C-b>", "<Esc><cmd>Build<CR>")
 

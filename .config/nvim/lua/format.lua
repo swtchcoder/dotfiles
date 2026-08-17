@@ -8,7 +8,7 @@ local function format()
 		return
 	end
 	local filename = vim.fn.expand("%:p")
-	vim.cmd(commands[filetype] .. " " .. vim.fn.shellescape(filename))
+	vim.cmd("silent !" .. commands[filetype] .. " " .. vim.fn.shellescape(filename))
 end
 
 function M.setup(opts)

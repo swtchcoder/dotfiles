@@ -19,26 +19,22 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lsp").setup({
-	commands = {
-		["clangd"] = { "c", "cpp" },
-		["lua-language-server"] = { "lua" }
-	}
-})
-
-require("build").setup({
-	commands = {
-		["make"] = { "Makefile", "makefile", "GNUmakefile" },
-	},
-	keybind = "<C-b>"
-})
-
-require("term").setup({
-	keybind = "<C-q>"
+	["clangd"] = { "c", "cpp" },
+	["lua-language-server"] = { "lua" }
 })
 
 require("format").setup({
 	["clang-format"] = { "c", "cpp" },
 	["stylua"] = { "lua" }
+})
+
+require("build").setup({
+	["make"] = { "Makefile", "makefile", "GNUmakefile" },
+})
+vim.keymap.set({ "n", "t", "i", "x" }, "<C-b>", "<Esc><cmd>Build<CR>")
+
+require("term").setup({
+	keybind = "<C-q>"
 })
 
 require("keybinds")

@@ -13,13 +13,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 function M.setup(opts)
-	opts = opts or {}
-
-	if not opts.commands then
+	if not opts then
 		return
 	end
-
-	for command, filetypes in pairs(opts.commands) do
+	for command, filetypes in pairs(opts) do
 		vim.lsp.config[command] = {
 			cmd = { command },
 			filetypes = filetypes

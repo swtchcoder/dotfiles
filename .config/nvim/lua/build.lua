@@ -37,7 +37,7 @@ local function run_command_get()
 	return run_command
 end
 
-local function build_and_run()
+local function build()
 	local build_command = build_command_get()
 	if build_command == nil then
 		return
@@ -54,18 +54,17 @@ local function build_and_run()
 end
 
 function M.setup(opts)
-	opts = opts or {}
-
-	if opts.commands then
-		build_commands = opts.commands
+	if not opts then
+		return
 	end
-
-	local keybind = opts.keybind
-	if keybind == nil then
-		keybind = "<C-b>"
-	end
-
-	vim.keymap.set({ "n", "i", "x", "t", "v" }, keybind, build_and_run)
+	build_commands = opts
+	vim.api.nvim_create_user_command(
+		"Build",
+		function(_)
+			build()
+		end,
+		{ nargs = "?" }
+	)
 end
 
 return M

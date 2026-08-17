@@ -1,6 +1,0 @@
-{
-  "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
-  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
-  "mini.icons": { "branch": "main", "commit": "d48ad47359218d2b019034f95f601b3861180885" },
-  "mini.statusline": { "branch": "main", "commit": "7091f554d7d26b5d55f4c937634da53ba277a44a" }
-}

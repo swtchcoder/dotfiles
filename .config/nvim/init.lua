@@ -1,20 +1,3 @@
-require("lsp").setup({
-	commands = {
-		["clangd"] = { "c", "cpp" }
-	}
-})
-
-require("build").setup({
-	commands = {
-		make = { "Makefile", "makefile", "GNUmakefile" },
-	},
-	keybind = "<C-b>"
-})
-
-require("terminal").setup({
-	keybind = "<C-q>"
-})
-
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 8
@@ -35,6 +18,29 @@ vim.opt.listchars = { tab = "→ ", space = "·" }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+require("lsp").setup({
+	commands = {
+		["clangd"] = { "c", "cpp" },
+		["lua-language-server"] = { "lua" }
+	}
+})
+
+require("build").setup({
+	commands = {
+		["make"] = { "Makefile", "makefile", "GNUmakefile" },
+	},
+	keybind = "<C-b>"
+})
+
+require("term").setup({
+	keybind = "<C-q>"
+})
+
+require("format").setup({
+	["clang-format"] = { "c", "cpp" },
+	["stylua"] = { "lua" }
+})
+
 require("keybinds")
 
 vim.pack.add({
@@ -42,35 +48,50 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/nyoom-engineering/oxocarbon.nvim",
 	"https://github.com/lukas-reineke/virt-column.nvim",
-	"https://github.com/norcalli/nvim-colorizer.lua"
+	"https://github.com/norcalli/nvim-colorizer.lua",
+	"https://github.com/nvim-mini/mini.completion",
+	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/nvim-mini/mini.statusline",
+	"https://github.com/nvim-mini/mini.icons"
 })
 
 vim.opt.background = "dark"
 vim.cmd.colorscheme "oxocarbon"
 
+package.preload["nvim-web-devicons"] = function()
+	require("mini.icons").mock_nvim_web_devicons()
+	return package.loaded["nvim-web-devicons"]
+end
+require("mini.icons").setup(opts)
+require("mini.icons").tweak_lsp_kind()
+
+require("mini.statusline").setup()
+
 require("virt-column").setup({
 	char = "∷",
 })
 
-require('colorizer').setup()
+require("colorizer").setup()
 
---[[
-lazy.nvim is a modern plugin manager for Neovim.
-]]
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins", {
-	change_detection = {
-		notify = false
-	}
+require("oil").setup({
+	default_file_explorer = true,
+	columns = {
+		"icon",
+		"size",
+	},
+	view_options = {
+		show_hidden = true
+	},
 })
+
+require("nvim-treesitter").setup({
+  auto_install = true,
+  highlight = { enable = true },
+  indent = { enable = true },
+})
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldmethod = "expr"
+vim.bo.indentexpr = "v:lua.require(\"nvim-treesitter\").indentexpr()"
+vim.wo.foldlevel = 99
+vim.filetype.add({ extension = { h = "c" } })
